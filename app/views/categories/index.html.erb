@@ -1,0 +1,14 @@
+
+<br><br><br><br><br>
+
+<%= form_tag search_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search for Game", :name => nil %>
+  </p>
+<% end %>
+
+
+<%@categories.each do |category|%>
+    <button><%= link_to category.name, category_path(category)%></button>
+<%end%>

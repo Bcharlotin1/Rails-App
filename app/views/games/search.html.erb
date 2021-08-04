@@ -1,0 +1,18 @@
+<br><br><br><br><br><br>
+
+
+
+
+<h2>Search resutls </h2>
+<% @games_search.each do |result|%>
+
+
+    <div class="row">
+    <div class="column">
+     <img src="<%= result.image%>" >
+      <h3> <%= result.title%> </h3>
+      <p> <%= result.description%> </p>
+       <p> <%=result.category.name%> </p>
+    </div>
+</div>
+<%end%>

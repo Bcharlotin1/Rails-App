@@ -1,0 +1,11 @@
+<br><br><br><br><br>
+
+<button><%= link_to "Home", categories_path, method: 'get'%></button><br><br>
+
+Welcome <%=@user.username%><br><br>
+Age: <%=@user.age%><br><br>
+About Me: <br><%=@user.about%><br><br>
+
+<button><%= link_to "Logout", signout_path, method: 'post'%></button>
+
+<button><%= link_to "Edit Profile", edit_user_path(@user), method: 'get'%></button>

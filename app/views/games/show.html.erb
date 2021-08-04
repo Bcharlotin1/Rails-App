@@ -1,0 +1,14 @@
+<br><br><br><br><br>
+
+<div class="row">
+    <div class="column">
+     <img src="<%= @game.image%>" >
+      <h3> <%= @game.title%> </h3>
+      <p> <%=@game.description%> </p>
+       <p> <%=@game.category.name%> </p>
+    </div>
+</div>
+
+<button><%= link_to "Delete Game", game_path(@game), method: 'delete'%></button>
+<button><%= link_to "Edit Game", edit_game_path(@game), method: 'get'%></button>
+<button><%= link_to "Reviews", game_reviews_path(@game), method: 'get'%></button>
