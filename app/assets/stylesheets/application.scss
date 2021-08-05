@@ -167,3 +167,30 @@ li.slider {
       background-position: $size 0, $size 0, $size 0;
     }
   }
+
+  //all buttons
+
+  button:link, button:visited {
+    font-family: 'PT Sans', Arial, Verdana;
+    background-color:rgb(218, 171, 18);
+    color: #222;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none ;
+    display: inline-block;
+  }
+  
+  button:hover, button:active {
+    font-family: 'PT Sans', Arial, Verdana;
+    background-color: rgb(218, 171, 18);
+    color: #222;
+
+  }
+
+  .button{
+    color: #222;
+
+    font-family: 'PT Sans', Arial, Verdana;
+    text-decoration: none ;
+  }

@@ -1,17 +1,19 @@
 <h1>Edit Profile</h1><br>
  
+<div class='form'>
+    <%= form_for @user do|f| %>
+    <%=f.label :username%>
+    <%=f.text_field :username%><br><br>
+    <%=f.label :age%><br>
+    <%=f.text_field :age%><br><br>
+    <%=f.label :about%><br>
+    <%=f.text_area :about%>
+    
+    <%=f.submit%>
+    <button><%= link_to "Cancel", user_path(@user), method: 'get', :class => "button" %></button>
+    <% end %>
 
-<%= form_for @user do|f| %>
-<%=f.label :username%>
-<%=f.text_field :username%><br><br>
-<%=f.label :age%>
-<%=f.text_field :age%><br><br>
-<%=f.label :about%>
-<%=f.text_area :about%>
-  
-<%=f.submit%>
-<% end %>
-<br><br>
-<button><%= link_to "Logout", signout_path, method: 'post'%></button>
-<button><%= link_to "Delete Account", delete_account_path(@user)%></button>
-<button><%= link_to "Cancle", user_path(@user), method: 'get'%></button>
+<h4> would you like to delete you account?</h4>
+<button><%= link_to "Delete Account", delete_account_path(@user), :class => "button" %></button>
+
+</div>

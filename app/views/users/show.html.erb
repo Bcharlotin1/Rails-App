@@ -9,8 +9,8 @@
     <h3>About Me: <br></h3>
     <p><%=@user.about%><br><br></p>
 
-    <button><%= link_to "Logout", signout_path, method: 'post'%></button>
+   
 
-    <button><%= link_to "Edit Profile", edit_user_path(@user), method: 'get'%></button>
+    <button><%= link_to "Edit Profile", edit_user_path(@user), method: 'get', :class => "button" %></button>
 
-</div>   
+</div>
