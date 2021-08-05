@@ -21,7 +21,7 @@
   <%=f.text_area :description%><br><br>
 
 Select a category
-  <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "select"}%><br>
+  <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "select"}, selected: @game.category.id?%><br>
  <%= f.fields_for :category do |category_attributes|%>
   Create a Category 
       <%= category_attributes.text_field :name %>

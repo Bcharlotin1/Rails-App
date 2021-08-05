@@ -34,7 +34,16 @@ class GamesController < ApplicationController
             @game.build_category
         else
             redirect_to games_path
-         #if game can not be found 
+        end
+    end
+
+    def update
+        @game = Game.find_by_id(params[:id])
+        if @game.valid?
+		    @game.update(game_params)
+            redirect_to game_path(@game)
+        else
+            render :edit
         end
     end
 
@@ -42,6 +51,8 @@ class GamesController < ApplicationController
             @games_search = Game.search_game(params[:search])
     end
 
+
+    
     private
 
     def game_params
