@@ -3,22 +3,9 @@ class UsersController < ApplicationController
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
     
-   
-    
-    def new
-        if logged_in?
-            redirect_to user_path(session[:user_id])
-        else
-            @user = User.new
-        end
-    end
 
     def show
-        # @user = User.find_by_id(params[:id])
-      
         if @user
-            #must chec if user exsits firs befoe  seconf if stsement
-            #find_by returns nil if the user does not exsits and you can calle @user.id on nil
             if @user.id != session[:user_id]
                 return head(:forbidden) 
             end 
@@ -27,17 +14,12 @@ class UsersController < ApplicationController
         end
     end
 
-    def edit
-            #@user = User.find_by_id(params[:id])
-            if @user
-                #must check if user exsits firs befoe  seconf if stsement
-                #find_by returns nil if the user does not exsits and you can calle @user.id on nil
-                if @user.id != session[:user_id]
-                    return head(:forbidden) 
-                end 
-            else  
-                return head(:forbidden) 
-            end
+    def new
+        if logged_in?
+            redirect_to user_path(session[:user_id])
+        else
+            @user = User.new
+        end
     end
 
     def create
@@ -51,8 +33,17 @@ class UsersController < ApplicationController
             end
     end
 
+    def edit
+            if @user
+                if @user.id != session[:user_id]
+                    return head(:forbidden) 
+                end 
+            else  
+                return head(:forbidden) 
+            end
+    end
+
     def update
-        # @user = User.find_by_id(params[:id])
         if @user.valid?
             @user.update(user_params)
             redirect_to user_path(@user)
@@ -62,11 +53,10 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        # @user = User.find_by_id(params[:id])
         session.delete(:user_id)
         @user.destroy
         redirect_to root_path
-      end
+    end
 
 
     private
