@@ -28,6 +28,16 @@ class GamesController < ApplicationController
             end
     end
 
+    def edit
+        @game = Game.find_by_id(params[:id])
+        if @game
+            @game.build_category
+        else
+            redirect_to games_path
+         #if game can not be found 
+        end
+    end
+
     def search
             @games_search = Game.search_game(params[:search])
     end
