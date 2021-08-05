@@ -10,19 +10,19 @@
   </div>
 <% end %>
 
-
-<%= form_for @user, url: signup_path do|f| %>
-<%=f.label :username%>
-<%=f.text_field :username%><br><br>
-<%=f.label :age%>
-<%=f.text_field :age%><br><br>
-<%=f.label :about%>
-<%=f.text_area :about%><br><br>
-<%=f.label :email%>
-<%=f.text_field :email%><br><br>
-<%=f.label :password%>
-<%=f.password_field :password%><br><br>
-
+<div class='form'>
+  <%= form_for @user, url: signup_path do|f| %>
+  <%=f.label :username%>
+  <%=f.text_field :username%><br>
+  <%=f.label :age%><br>
+  <%=f.text_field :age%><br>
+  <%=f.label :about%><br>
+  <%=f.text_area :about%><br>
+  <%=f.label :email%><br>
+  <%=f.text_field :email%><br>
+  <%=f.label :password%>
+  <%=f.password_field :password%><br><br>
   
-<%=f.submit%>
-<% end %>
+  <%=f.submit%>
+  <% end %>
+</div>

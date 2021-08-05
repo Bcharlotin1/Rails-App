@@ -1,12 +1,16 @@
 
 <!--<%= render partial: 'layout' %> -->
 
-<button><%= link_to "Home", categories_path, method: 'get'%></button><br><br>
 
-Welcome <%=@user.username%><br><br>
-Age: <%=@user.age%><br><br>
-About Me: <br><%=@user.about%><br><br>
+<div class='profile_page_container'>
 
-<button><%= link_to "Logout", signout_path, method: 'post'%></button>
+    <h2>Welcome: <%=@user.username.upcase%><br><br><h2>
+    <h3>Age: <%=@user.age%><br><br><h3>
+    <h3>About Me: <br></h3>
+    <p><%=@user.about%><br><br></p>
 
-<button><%= link_to "Edit Profile", edit_user_path(@user), method: 'get'%></button>
+    <button><%= link_to "Logout", signout_path, method: 'post'%></button>
+
+    <button><%= link_to "Edit Profile", edit_user_path(@user), method: 'get'%></button>
+
+</div>   

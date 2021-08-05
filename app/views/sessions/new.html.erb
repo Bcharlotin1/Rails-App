@@ -1,6 +1,6 @@
-<br><br><br><br><br><br><br><br>
 
-<br><% if flash[:now] %>
+
+<% if flash[:message] %>
     <% flash.each do |type, msg| %>
         <div>
         <%= msg %>
@@ -8,14 +8,27 @@
     <% end %>
 <% end %>
 
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-    <label for="username">Username</label>
-    <%= text_field_tag :username %>
-    <label for="password">Password</label>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Sign In"%>
+
+
+    <h1 class='signin_text'>Sign In</h1>
+    
+  <% if flash[:message] %>
+    <% flash.each do |type, msg| %>
+        <div>
+        <%= msg %>
+        </div>
+    <% end %>
 <% end %>
 
+<div class='form'>
+    <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+        <label for="username">Username</label>
+        <%= text_field_tag :username%>
+        <label for="password">Password</label>
+        <%= password_field_tag :password %>
+        <%= submit_tag "Sign In"%>
+    <% end %>
+</div>
 
-<button><%= link_to "Cancle", root_path%></button>
+
 
