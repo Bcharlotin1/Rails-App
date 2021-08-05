@@ -5,7 +5,7 @@ class GamesController < ApplicationController
     def index
         @games = Game.all.ordered_by_title
     end
-    
+
     def show
         @game = Game.find_by_id(params[:id])
         if !@game
@@ -13,6 +13,20 @@ class GamesController < ApplicationController
         end
     end
 
+    def new
+        @game = Game.new
+        @game.build_category
+    end
+
+    def create
+        @game = Game.new(game_params)
+            if  @game.valid?
+                @game.save
+                redirect_to game_path(@game)
+            else 
+                render :new
+            end
+    end
 
     def search
             @games_search = Game.search_game(params[:search])

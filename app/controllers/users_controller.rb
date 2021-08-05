@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user_variable
+    before_action :set_user_variable, exclude:[:new, :create]
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
     
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     end
 
     def edit
-            @user = User.find_by_id(params[:id])
+            #@user = User.find_by_id(params[:id])
             if @user
                 #must check if user exsits firs befoe  seconf if stsement
                 #find_by returns nil if the user does not exsits and you can calle @user.id on nil
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        # @user = User.new(user_params)
+        @user = User.new(user_params)
             if  @user.save
                 @user.save
                 session[:user_id] = @user.id
@@ -76,6 +76,6 @@ class UsersController < ApplicationController
     end
 
     def set_user_variable
-        @user = current_user
+        @user = User.find_by_id(params[:id])
     end
 end
