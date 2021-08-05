@@ -1,16 +1,22 @@
-<%if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-    <ul>
-      <% @user.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
+<div class='center_errors'>
+    <%if @user.errors.any? %>
+      <div id="error_explanation">
+        <div class="bar">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        </div>
+        <ul>
+          <% @user.errors.each do |error| %>
+          <div class="bar">
+            <div class="bar error"><li><%= error.full_message %></li></div>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
-<% end %>
 
 <div class='form'>
+
   <%= form_for @user, url: signup_path do|f| %>
   <%=f.label :username%>
   <%=f.text_field :username%><br>
