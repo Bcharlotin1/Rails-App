@@ -16,4 +16,6 @@
     <h4><%=review.user.username%></h4>
     <p><%=review.content%></h4>
     </div>
+     <%= render partial:'buttons', locals: {review: review}%>
+   
 <%end%>

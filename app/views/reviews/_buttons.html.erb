@@ -1,0 +1,4 @@
+ <%if current_user == review.user%>
+    <button><%= link_to "Edit Review", edit_game_review_path(@game,review)%></button>
+    <button><%= link_to "Delete Review", game_review_path(@game, review), method: 'delete' %></button>
+<%end%>
