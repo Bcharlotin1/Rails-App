@@ -1,0 +1,32 @@
+<%if @game.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+    <ul>
+      <% @game.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @game do|f| %>
+  <%=f.label :title%><br>
+  <%=f.text_field :title%><br><br>
+
+  <%=f.label "Please enter URL of image "%><br>
+  <%=f.text_field :image%><br><br>
+
+  <%=f.label :description%><br>
+  <%=f.text_area :description%><br><br>
+
+Select a category
+  <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "select"}%><br>
+ <%= f.fields_for :category do |category_attributes|%>
+  Create a Category 
+      <%= category_attributes.text_field :name %>
+  <% end %>
+
+
+  <%=f.submit%>
+<% end %>
