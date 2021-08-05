@@ -63,12 +63,15 @@
       height: 100%;
       justify-content: center;
       align-items: center;
-      color: #fff;
+      color: #ffbf00,#fff;
       text-decoration: none;
       position: relative;
       font-size: 18px;
       z-index: 9;
     }
+  .image_link{
+    size: 200px;
+  }
   }
   
   a.active {
@@ -121,5 +124,48 @@
     & ~ .slider {
       left: 75%;
       background-color: #16a085;
+    }
+  }
+
+  //game text
+
+  html {
+    height: 100%;
+  }
+
+  
+  $size: 20px;
+  
+  .game_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+    
+    font-size: 50px;
+    font-weight: 900;
+    background: linear-gradient(
+      -45deg, 
+      #ffbf00 25%, 
+      #feac5e 25%, 
+      #feac5e 50%, 
+      #ffbf00 50%, 
+      #ffbf00 75%, 
+      #feac5e 75%, 
+      #feac5e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: $size $size;
+    background-position: 0 0;
+    animation: stripes 1s linear infinite;
+  }	
+  
+  @keyframes stripes {
+    100% { 
+      background-position: $size 0, $size 0, $size 0;
     }
   }
