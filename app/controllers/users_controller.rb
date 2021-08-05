@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user_variable, exclude:[:new, :create]
+    before_action :set_user_variable, except:[:new, :create]
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
     

@@ -1,13 +1,12 @@
 class GamesController < ApplicationController
     before_action :require_login
-   
+    before_action :game_variable, except: [:index, :create, :new]
 
     def index
         @games = Game.all.ordered_by_title
     end
 
     def show
-        @game = Game.find_by_id(params[:id])
         if !@game
             redirect_to games_path
         end
@@ -29,7 +28,6 @@ class GamesController < ApplicationController
     end
 
     def edit
-        @game = Game.find_by_id(params[:id])
         if @game
             @game.build_category
         else
@@ -38,7 +36,6 @@ class GamesController < ApplicationController
     end
 
     def update
-        @game = Game.find_by_id(params[:id])
         if @game.valid?
 		    @game.update(game_params)
             redirect_to game_path(@game)
@@ -52,13 +49,16 @@ class GamesController < ApplicationController
     end
 
 
-    
+
     private
 
     def game_params
         params.require(:game).permit(:title, :image, :description, :category_id, :category_attributes => [:name])
     end
 
+    def game_variable
+        @game = Game.find_by_id(params[:id])
+    end
 
     
 end
