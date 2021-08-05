@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
     before_action :require_login
-    before_action :game_variable, except: [:index, :create, :new]
+    before_action :game_variable, except: [:index, :create, :new, :search]
 
     def index
         @games = Game.all.ordered_by_title

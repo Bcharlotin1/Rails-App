@@ -1,13 +1,5 @@
 <br><br><br><br><br>
 
-<div class="row">
-    <div class="column">
-     <img src="<%= @game.image%>" >
-      <h3> <%= @game.title%> </h3>
-      <p> <%=@game.description%> </p>
-       <p> <%=@game.category.name%> </p>
-       <button><%= link_to "Edit Game", edit_game_path(@game), method: 'get'%></button>
-    </div>
-</div>
+<%= render partial: "games", locals: {game: @game} %>
 
 <button><%= link_to "Reviews", game_reviews_path(@game), method: 'get'%></button>

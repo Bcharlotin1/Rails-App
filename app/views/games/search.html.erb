@@ -6,13 +6,7 @@
 <h2>Search resutls </h2>
 <% @games_search.each do |result|%>
 
+<%= render partial: "games", locals: {game: result} %>
 
-    <div class="row">
-    <div class="column">
-     <img src="<%= result.image%>" >
-      <h3> <%= link_to result.title, game_path(result)%> </h3>
-      <p> <%= result.description%> </p>
-       <p> <%=result.category.name%> </p>
-    </div>
 </div>
 <%end%>
