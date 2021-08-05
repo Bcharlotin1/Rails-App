@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'signout' =>'sessions#destroy'
 
   
-  resources :games, only: [:index, :show] do
+  resources :games, except: [:destroy] do
     resources :reviews, only: [:new, :create, :index, :edit, :update, :destroy]
   end
   get '/search' => 'games#search'
