@@ -1,12 +1,11 @@
-
-<br><br><br><br><br>
-
-<%= form_tag search_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search for Game", :name => nil %>
-  </p>
-<% end %>
+<div class='container'>
+  <%= form_tag search_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search], :id =>"searchInput",:placeholder =>"Search.." %>
+      <div id='submitsearch' style="">
+        <%= submit_tag "Search for Game", :name => nil, :id => 'submitsearch',:style =>""%>
+      </div>
+  <% end %>
+</div>
 
 
 <%@categories.each do |category|%>

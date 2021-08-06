@@ -3,31 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-
-  
-  /* Create four equal columns that sits next to each other */
-  // .row {
-  //   display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // width: 100%;
-  //   justify-content:center;
-  // }
-  
-  // /* Create four equal columns that sits next to each other */
-  // .column {
-  //   display: flex;
-  //   flex-direction: column;
-  //   flex-basis: 100%;
-  //   flex: 10;
-  // }
-  
-  // .column img {
-  //   margin-top: 8px;
-  //   vertical-align: middle;
-  //   width: 100%;
-  // }
-
   .grid-container{
     display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -41,17 +16,18 @@
     margin: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    max-width: fit-content;
+    width:fit-content;
     font-size: 16px;
+
   }
   
 
    .column{
      margin: auto;
      margin-top: 40px;
-     background-color: rgba(255, 255, 255, 0.8);
      padding: 40px;
      text-align: center;
+      width: 30%;
    }
    .game_button_location{
     margin-top: 20px;
@@ -61,4 +37,61 @@
     text-align: center;
    }
   
+   //search function
+   
+
+   input:focus {
+    outline-offset: -2px;
+}
+
+.container {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+  width:100%;
+   
+    margin-top: -1em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+  
+   
+}
+
+
+
+
+#submitsearch{
+  border: 1px solid rgb(138, 134, 134);
+  margin-left: -82px;
+  padding: 5px;
+  border-radius: 19px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 8px; 
+  padding-top: 4px;
+
+  display: none;
+  box-shadow: 0 0 1px black;     
+  margin-right:110px;
+}
+
+#searchInput {
+      width: 18%;
+
+      border: 1px solid #000;
+      border-radius: 30px;
+      font-size: 16px;
+      background-color: white;
+      background-image:url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-24.png');
+
+      background-position: 10px 7px;
+      background-repeat: no-repeat;
+      padding: 8px 20px 8px 40px;
+      -webkit-transition: width 0.8s ease-in-out;
+      transition: width 0.8s ease-in-out;
+      outline: none;
+      opacity: 0.9;
+
+    }
+
+
 
