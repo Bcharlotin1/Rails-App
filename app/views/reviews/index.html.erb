@@ -1,21 +1,27 @@
-<br>  <br><br> <br> <br>    
-    
-    <div class="row">
-        <div class="column">
-            <img src="<%= @game.image%>" >
-            <h3><%= link_to @game.title, game_path(@game) %></h3>
-            <p> <%=@game.description%> </p>
-            <button><h4> <%= link_to @game.category.name, category_path(@game.category)%> </h4></button>
-        </div>
-    </div>
 
-<h2>Reviews:</h2>
-<button><h3><%= link_to "New Review", new_game_review_path(@game) %></h3></button>
-<%@reviews.each do |review|%>
-    <div class ="review_content">
-    <h4><%=review.user.username%></h4>
-    <p><%=review.content%></h4>
+<h1>Reviews</h1>
+
+<div class='game_button_location'>
+    <button><h3><%= link_to "New Review", new_game_review_path(@game) %></h3></button>
+</div>
+
+<div class="grid-container ">
+        
+    <div class="column">
+        <img src="<%= @game.image%>" >
+        <h3><%= link_to @game.title, game_path(@game) %></h3>
+        <p> <%=@game.description%> </p>
+        <button><h4> <%= link_to @game.category.name, category_path(@game.category)%> </h4></button>
     </div>
-     <%= render partial:'buttons', locals: {review: review}%>
-   
-<%end%>
+    
+    
+    <div class="column">
+        <%@reviews.each do |review|%>
+            <div class ="review_content">
+                <h4><%=review.user.username%></h4>
+                <p><%=review.content%></h4>
+            </div>
+            <%= render partial:'buttons', locals: {review: review}%>
+        <%end%>
+    </div>
+</div>

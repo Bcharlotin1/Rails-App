@@ -4,9 +4,7 @@ class ReviewsController < ApplicationController
     def index
         @game = Game.find_by_id(params[:game_id])  
         @reviews = @game.reviews
-        # # @user = User.find_by_id(params[:user_id) 
-        # @game_reviews = Review.game_reviews(params[:game_id])
-        # byebug
+        
     end
 
     def new
@@ -30,9 +28,10 @@ class ReviewsController < ApplicationController
     def edit
         @game = Game.find_by_id(params[:game_id])
         @review = Review.find_by_id(params[:id])
-        if  !@review.user = current_user
-                return head(:forbidden) 
-        end
+        must_be_current_user
+        # if  !@review.user = current_user
+        #         return head(:forbidden) 
+        # end
     end
 
     def update
@@ -49,6 +48,7 @@ class ReviewsController < ApplicationController
     def destroy
         @game = Game.find_by_id(params[:game_id])
         @review = Review.find_by_id(params[:id])
+        must_be_current_user
         @review.destroy
         redirect_to game_reviews_path(@game)
       end
@@ -57,5 +57,12 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(:content, :game_id)
+    end
+
+    def must_be_current_user
+       if  @review.user != current_user
+        redirect_to game_reviews_path(@game)
+       end
+        #makes it un hackble in the ispect 
     end
 end

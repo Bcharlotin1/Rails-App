@@ -10,12 +10,7 @@
   }
   
   /* Create four equal columns that sits next to each other */
-  .column {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
-  }
+ 
   
   .column img {
     margin-top: 8px;
@@ -30,3 +25,4 @@
     padding: 20px;
     width: 400px;
   }
+

@@ -1,24 +1,20 @@
 
-
-<% if flash[:message] %>
-    <% flash.each do |type, msg| %>
-        <div>
-        <%= msg %>
-        </div>
+<div class='center_errors'>
+    <% if flash[:message] %>
+        <ul>
+            <% flash.each do |type, msg| %>
+                <div class="bar">
+                    <div class="bar error"><li><%= msg %><li></div>
+                </div>
+            <% end %>
+        </ul>
     <% end %>
-<% end %>
+</div>
 
 
 
     <h1 class='signin_text'>Sign In</h1>
-    
-  <% if flash[:message] %>
-    <% flash.each do |type, msg| %>
-        <div>
-        <%= msg %>
-        </div>
-    <% end %>
-<% end %>
+
 
 <div class='form'>
     <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>

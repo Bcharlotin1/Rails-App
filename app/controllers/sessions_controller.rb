@@ -18,12 +18,12 @@ class SessionsController < ApplicationController
               session[:user_id] = @user.id
               redirect_to user_path(@user)
             else
-              flash[:now] = "Wrong Username or Password"  
+              flash[:message] = "Wrong Username or Password"  
               render :new
             end 
 
         else
-          flash[:now] = "Can't leave the fields blank"  
+          flash[:message] = "Can't leave the fields blank"  
           render :new
         end
     end
@@ -41,12 +41,12 @@ class SessionsController < ApplicationController
        end
 
        if user.valid?
-        session[:user_id] = user.id
-        flash[:message] = "Successful Login" 
-        redirect_to user_path(user)
+          session[:user_id] = user.id
+          flash[:alert] = "Successful Login" 
+          redirect_to user_path(user)
        else
-        flash[:message] = "Signin or  Create account was unsucessful" 
-        redirect_to root_path
+          flash[:alert] = "Signin or Create account was unsucessful" 
+          redirect_to root_path
        end
 
     end

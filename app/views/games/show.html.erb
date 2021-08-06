@@ -1,5 +1,9 @@
-<br><br><br><br><br>
 
 <%= render partial: "games", locals: {game: @game} %>
-<button><%= link_to "Edit Game", edit_game_path(@game), method: 'get'%></button>
-<button><%= link_to "Reviews", game_reviews_path(@game), method: 'get'%></button>
+
+<div class='game_button_location'>
+    <div class='game_show_page_buttons'>
+    <button class ='button1'><%= link_to "Edit Game", edit_game_path(@game), method: 'get'%></button>
+    <button class ='button2'><%= link_to "Reviews", game_reviews_path(@game), method: 'get'%></button>
+    </div>
+</div>

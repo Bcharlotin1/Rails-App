@@ -1,13 +1,10 @@
-     
-
-    
-        <div class="grid-container">
-            <div class="column">
-                <img src="<%= game.image%>" >
-                <h3><%= link_to game.title, game_path(game) %></h3>
-                <p> <%=game.description%> </p>
-                <button><h4> <%= link_to game.category.name, category_path(game.category)%> </h4></button>
-            </div>
-        </div>
+       
+ <div class="column">
+    <img src="<%= game.image%>" >
+    <h3><%= link_to game.title, game_path(game) %></h3>
+    <p> <%=game.description%> </p>
+    <button><h4> <%= link_to game.category.name, category_path(game.category)%> </h4></button>
+</div>
+       
 
 
