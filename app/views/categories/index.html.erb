@@ -7,7 +7,8 @@
   <% end %>
 </div>
 
-
-<%@categories.each do |category|%>
-    <button><%= link_to category.name, category_path(category)%></button>
-<%end%>
+<div class='button_location'>
+  <%@categories.each do |category|%>
+      <button><%= link_to category.name, category_path(category)%></button>
+  <%end%>
+</div>
