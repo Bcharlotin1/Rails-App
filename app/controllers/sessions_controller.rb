@@ -9,16 +9,16 @@ class SessionsController < ApplicationController
 
     def create
       #issue her with corrent user name but worng password,  goed to "access to localhost was denied? is that what the forbiddin does?"
-      if !params[:password].blank? || !params[:user].blank?
+        if !params[:password].blank? || !params[:user].blank?
 
-          @user = User.find_by(username: params[:username].downcase)
+          @user = User.find_by(email: params[:email])
 
             if !@user.blank?
               return head(:forbidden) unless @user.authenticate(params[:password])
               session[:user_id] = @user.id
               redirect_to user_path(@user)
             else
-              flash[:message] = "Wrong Username or Password"  
+              flash[:message] = "Wrong Email or Password"  
               render :new
             end 
 

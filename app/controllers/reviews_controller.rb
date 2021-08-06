@@ -1,20 +1,17 @@
 class ReviewsController < ApplicationController
     before_action :require_login
+    before_action :set_game_reviews_variable
+    before_action :set_review_variable
     
     def index
-        @game = Game.find_by_id(params[:game_id])  
         @reviews = @game.reviews
-        
     end
 
     def new
-    
-        @game = Game.find_by_id(params[:game_id])
         @review = Review.new
     end 
 
     def create
-        @game = Game.find_by_id(params[:game_id])
         @review = Review.new(review_params)
         @review.user = current_user
             if  @review.valid?
@@ -26,17 +23,10 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @game = Game.find_by_id(params[:game_id])
-        @review = Review.find_by_id(params[:id])
         must_be_current_user
-        # if  !@review.user = current_user
-        #         return head(:forbidden) 
-        # end
     end
 
     def update
-        @game = Game.find_by_id(params[:game_id])
-        @review = Review.find_by_id(params[:id])
         if @review.valid?
             @review.update(review_params)
             redirect_to game_reviews_path(@game)
@@ -46,8 +36,6 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        @game = Game.find_by_id(params[:game_id])
-        @review = Review.find_by_id(params[:id])
         must_be_current_user
         @review.destroy
         redirect_to game_reviews_path(@game)
@@ -63,6 +51,13 @@ class ReviewsController < ApplicationController
        if  @review.user != current_user
         redirect_to game_reviews_path(@game)
        end
-        #makes it un hackble in the ispect 
+    end
+
+    def set_game_reviews_variable
+        @game = Game.find_by_id(params[:game_id])
+    end
+
+    def set_review_variable
+        @review = Review.find_by_id(params[:id])
     end
 end
