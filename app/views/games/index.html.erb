@@ -3,7 +3,7 @@
 
 <button><h3><%= link_to "New Game", new_game_path(@game) %></h3></button>
 <%@games.each do |game|%>
-
-<%= render partial: "games", locals: {game: game} %>
-
+  
+            <div><%= render partial: "games", locals: {game: game} %><div>
+        
 <%end%>
