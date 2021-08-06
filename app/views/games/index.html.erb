@@ -3,8 +3,8 @@
         <button><h3><%= link_to "New Game", new_game_path(@game) %></h3></button>
 </div>
 
- <div class="grid-container">
+<div class="grid-container">
     <%@games.each do |game|%>
-     <%= render partial: "games", locals: {game: game} %>  
+        <%= render partial: "games", locals: {game: game} %>  
     <%end%>
 </div>

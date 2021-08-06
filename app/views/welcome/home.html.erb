@@ -1,14 +1,18 @@
 
+<div class='center_errors'>
+    <% if flash[:alert] %>
+        <ul>
+            <% flash.each do |type, msg| %>
+                <div class="bar">
+                    <div class="bar error"><li><%= msg %><li></div>
+                </div>
+            <% end %>
+        </ul>
+    <% end %>
+</div>
 
 
 	<h1 class='welcome_text'>Welcome</h1>
 
 
 
-<br><% if flash[:message] %>
-    <% flash.each do |type, msg| %>
-        <div>
-        <%= msg %>
-        </div>
-    <% end %>
-<% end %>

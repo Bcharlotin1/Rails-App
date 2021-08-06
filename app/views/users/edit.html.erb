@@ -2,18 +2,18 @@
  
 <div class='form'>
     <%= form_for @user do|f| %>
-    <%=f.label :username%>
-    <%=f.text_field :username%><br><br>
-    <%=f.label :age%><br>
-    <%=f.text_field :age%><br><br>
-    <%=f.label :about%><br>
-    <%=f.text_area :about%>
-    
-    <%=f.submit%>
-    <button><%= link_to "Cancel", user_path(@user), method: 'get', :class => "button" %></button>
+        <%=f.label :username%>
+        <%=f.text_field :username%><br><br>
+        <%=f.label :age%><br>
+        <%=f.text_field :age%><br><br>
+        <%=f.label :about%><br>
+        <%=f.text_area :about%>
+        
+        <%=f.submit%>
+        <button><%= link_to "Cancel", user_path(@user), method: 'get', :class => "button" %></button>
     <% end %>
 
-<h4> would you like to delete you account?</h4>
-<button><%= link_to "Delete Account", delete_account_path(@user), :class => "button" %></button>
+    <h4> would you like to delete you account?</h4>
+    <button><%= link_to "Delete Account", delete_account_path(@user), :class => "button" %></button>
 
 </div>

@@ -1,12 +1,7 @@
 <br><br><br><br><br><br>
 
-
-
-
 <h1>Search Results </h1>
+
 <% @games_search.each do |result|%>
-
-<%= render partial: "games", locals: {game: result} %>
-
-</div>
+    <%= render partial: "games", locals: {game: result} %>
 <%end%>

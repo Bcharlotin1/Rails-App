@@ -1,22 +1,30 @@
 
-<%if @review.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<div class='center_errors'>
+    <%if @review.errors.any? %>
+      <div id="error_explanation">
+        <div class="bar">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+        </div>
+        <ul>
+          <% @review.errors.each do |error| %>
+          <div class="bar">
+            <div class="bar error"><li><%= error.full_message %></li></div>
+          </div>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+</div>
 
-    <ul>
-      <% @review.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 
-<%= form_for ([@game, @review]) do|f| %>
-  <%= f.hidden_field :game_id, :value => @game.id%>
+<div class='form'>
+  <%= form_for ([@game, @review]) do|f| %>
+    <%= f.hidden_field :game_id, :value => @game.id%>
 
-  <%=f.label :content%><br>
-  <%=f.text_area :content%><br><br>
+    <%=f.label :content%><br>
+    <%=f.text_area :content%><br><br>
 
 
-  <%=f.submit%>
-<% end %>
+    <%=f.submit%>
+  <% end %>
+</div>

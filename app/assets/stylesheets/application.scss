@@ -68,6 +68,10 @@ h1 {
     position: relative;
     font-size: 18px;
     z-index: 9;
+
+    img{
+      margin-left:-50px ;
+    }
   }
 }
 
@@ -167,7 +171,9 @@ li.slider {
       background-position: $size 0, $size 0, $size 0;
     }
   }
-
+  .header_img {
+    width: 100px;
+  }
   //all buttons
 
   button:link, button:visited {

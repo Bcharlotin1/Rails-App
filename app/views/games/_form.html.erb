@@ -13,10 +13,10 @@
         </ul>
       </div>
     <% end %>
-  </div>
+</div>
 
 
-  <%= form_for @game do|f| %>
+<%= form_for @game do|f| %>
     <%=f.label :title%><br>
     <%=f.text_field :title%><br><br>
 
@@ -26,13 +26,13 @@
     <%=f.label :description%><br>
     <%=f.text_area :description%><br><br>
 
-  Select a category<br>
+    Select a category<br>
     <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "select"}%><br>
-  <%= f.fields_for :category do |category_attributes|%>
-    Create a Category 
-        <%= category_attributes.text_field :name %>
+    
+    <%= f.fields_for :category do |category_attributes|%>
+      Create a Category 
+          <%= category_attributes.text_field :name %>
     <% end %>
-
 
     <%=f.submit%>
   <% end %>
