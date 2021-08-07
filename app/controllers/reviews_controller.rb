@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :require_login
-    before_action :set_game_reviews_variable
-    before_action :set_review_variable
+    before_action :set_game_reviews_variable, except:[:create]
+    before_action :set_review_variable, except: [:index, :new, :create]
     
     def index
         @reviews = @game.reviews
