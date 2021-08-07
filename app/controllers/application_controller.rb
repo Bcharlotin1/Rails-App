@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-    # protect_from_forgery with: :exception #rotect themselves from Cross-Site Request Forgery (CSRF) 
     include ApplicationHelper
    
 private 

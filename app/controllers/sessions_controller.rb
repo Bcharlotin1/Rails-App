@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
  
-    
     def new
       if logged_in?
         redirect_to user_path(session[:user_id])
@@ -8,7 +7,6 @@ class SessionsController < ApplicationController
     end 
 
     def create
-      #issue her with corrent user name but worng password,  goed to "access to localhost was denied? is that what the forbiddin does?"
         if !params[:password].blank? || !params[:user].blank?
 
           @user = User.find_by(email: params[:email])
@@ -31,13 +29,10 @@ class SessionsController < ApplicationController
     def omniauth
      
       user = User.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |u|
-        #this bloock only gets activated by create
         u.email = auth[:info][:email]
         u.username = auth[:info][:name]
         u.password = SecureRandom.hex(12)
-        #we are not setting up a real password,  googl takes care of the stuff,  but we need somtething
-        #stored inside for validation within the app
-        #we use secure randum hex,  its going to make a random number/letter/symbols for us   so that its asscoisted with the accoutn
+      
        end
 
        if user.valid?
@@ -61,7 +56,6 @@ class SessionsController < ApplicationController
 
     def auth
       request.env['omniauth.auth']
-      #how we acces the infromation from gogole that is being set to us ,  this equates to params
     end
 
 end

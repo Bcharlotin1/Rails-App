@@ -36,5 +36,3 @@ category_id: 3)
 
 
 Review.create(content: 'Love this! Zelda one of favorite games when the Gamecube came out!', user_id: 1, game: zelda)
-#iam able to use game instead of game_id: is apart of  the beelongs_to macro method 
-#that gives you other methods to use :game

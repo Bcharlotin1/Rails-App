@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
-  #catches all the infromation from sent from google
+  
   root to: 'welcome#home'
 
   resources :users, except: [:index, :new, :create]
@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   resources :categories,only: [:index, :show]
   
  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
 end
