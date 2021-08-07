@@ -21,6 +21,8 @@ class Game < ApplicationRecord
 
     
     scope :ordered_by_title, -> { order(title: :asc) }
+
+    
     scope :search_game, ->(search) {where("title LIKE ?", "%" + "#{search}" + "%")}
     #Scopes are custom queries that you define inside your Rails models with the scope method.
 
