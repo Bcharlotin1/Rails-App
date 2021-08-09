@@ -57,7 +57,7 @@ class GamesController < ApplicationController
     end
 
     def set_game_variable
-        @game = Game.find_by_id(params[:id])
+        @game = Game.find(params[:id])
     end
 
     

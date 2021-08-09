@@ -55,10 +55,10 @@ class ReviewsController < ApplicationController
     end
 
     def set_game_reviews_variable
-        @game = Game.find(id: params[:game_id])
+        @game = Game.find(params[:game_id])
     end
 
     def set_review_variable
-        @review = Review.find_by_id(params[:id])
+        @review = Review.find(params[:id])
     end
 end
