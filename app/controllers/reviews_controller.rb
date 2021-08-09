@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
     before_action :require_login
     before_action :set_game_reviews_variable, except:[:create]
     before_action :set_review_variable, except: [:index, :new, :create]
+   
     
     def index
         @reviews = @game.reviews
@@ -54,7 +55,7 @@ class ReviewsController < ApplicationController
     end
 
     def set_game_reviews_variable
-        @game = Game.find_by_id(params[:game_id])
+        @game = Game.find(id: params[:game_id])
     end
 
     def set_review_variable

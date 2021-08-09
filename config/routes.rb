@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
 
   resources :users, except: [:index, :new, :create]
-  post 'delete_account' =>'users#destroy'
+
 
   get 'signup' => 'users#new'
   post 'signup' =>'users#create'
