@@ -37,7 +37,6 @@ class SessionsController < ApplicationController
 
        if user.valid?
           session[:user_id] = user.id
-          flash[:alert] = "Successful Login" 
           redirect_to user_path(user)
        else
           flash[:alert] = "Signin or Create account was unsucessful" 

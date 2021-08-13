@@ -17,8 +17,9 @@ Rails.application.routes.draw do
 
   
   resources :games, except: [:destroy] do
-    resources :reviews, only: [:new, :create, :index, :edit, :update, :destroy]
+    resources :reviews, except: [:show]
   end
+  
   get '/search' => 'games#search'
   resources :categories,only: [:index, :show]
   
